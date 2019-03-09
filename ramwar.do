@@ -8,6 +8,6 @@
 40 PRINT@240,"";:INPUT"(B)uy, (S)ell, (M)ove";I$:IF I$="b" OR I$="s" THEN INPUT"Type, Qty";G$,Q:H=ASC(G$)-96:IF I$="b" THEN 60 ELSE 70
 50 IF I$="m" THEN CLS:FORX=1TO5:PRINTX;"- ";L$(X):NEXT:INPUT"Where to";F:T=T+1:D=D*1.06:FORX=1TO4:P(X)=(RND(1)+.1)*B(X):NEXT:GOTO 30
 59 REM Buying chips routine
-60 X=Q*P(H):IFX>C OR P(H)=0 THEN SOUND11000,30:GOTO 30 ELSE U(H)=U(H)+Q:C=C-(Q*P(H))
+60 X=Q*P(H):IFX>C OR P(H)=0 OR U(H)+Q>100 THEN SOUND11000,30:GOTO 30 ELSE U(H)=U(H)+Q:C=C-(Q*P(H))
 68 GOTO 30
 69 REM Selling chips routine
